@@ -1,0 +1,23 @@
+name: Danger
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  danger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7' 
+
+      - name: Install Danger
+        run: gem install danger
+
+      - name: Run Danger
+        run: danger
