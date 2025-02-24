@@ -1,0 +1,16 @@
+name: Conventional Commits
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  conventional-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Check for Conventional Commits
+        uses: webiny/action-conventional-commits@v1
